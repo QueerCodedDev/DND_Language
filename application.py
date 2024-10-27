@@ -10,8 +10,6 @@ with open('font.csv', newline='') as csvfile:
     for row in buffer:
         font.append(row)
 
-print(font[0])
-
 # Load special character font data
 font_special = [
     ['.', 'WA:AD:WS'],
@@ -37,6 +35,7 @@ S = (1, -1)
 D = (1,  0)
 
 STROKES = {
+    '': [],
     'WA': [W, A],
     'WS': [W, S],
     'WD': [W, D],
@@ -44,8 +43,6 @@ STROKES = {
     'DS': [D, S],
     'SA': [S, A]
 }
-
-print(STROKES['WA'])
 
 # Initialize Pygame
 pygame.init()
@@ -82,12 +79,27 @@ def render_character(character_lines, grid_x, grid_y):
         grid_x: The x-coordinate of the grid cell to render in.
         grid_y: The y-coordinate of the grid cell to render in.
     """
-    for line in character_lines:
-        start_x = grid_x * cell_size + line[0][0] * cell_size
-        start_y = grid_y * cell_size - line[0][1] * cell_size
-        end_x = grid_x * cell_size + line[1][0] * cell_size
-        end_y = grid_y * cell_size - line[1][1] * cell_size
+    # Parse strokes
+    strokes = character_lines.split(':')
+    for s in strokes:
+        stroke = STROKES['']  # Empty stroke
+        if s in STROKES:
+            stroke = STROKES[s]
+        elif key_swap(s) in STROKES:  # Check for flipped pairs
+            stroke = STROKES[key_swap(s)]
+
+        # Parse and assign coordinates
+        start_x = grid_x * cell_size + stroke[0][0] * cell_size
+        start_y = grid_y * cell_size - stroke[0][1] * cell_size
+        end_x = grid_x * cell_size + stroke[1][0] * cell_size
+        end_y = grid_y * cell_size - stroke[1][1] * cell_size
+
+        # Render
         pygame.draw.line(screen, black, (start_x, start_y), (end_x, end_y), 3)
+
+
+def key_swap(s):
+    return s[1] + s[0]
 
 
 # Define the character 'L' with the corrected coordinates
@@ -106,8 +118,9 @@ while running:
 
     screen.fill(white)
     draw_grid()
-    render_character(character_L, 0, 0)  # Render 'L' at grid position (0, 0) - top left
+    render_character(font[13][1], 0, 0)
 
     pygame.display.flip()
+    # running = False
 
 pygame.quit()
