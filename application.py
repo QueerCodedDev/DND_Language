@@ -85,8 +85,8 @@ def render_character(character_lines, grid_x, grid_y):
         stroke = STROKES['']  # Empty stroke
         if s in STROKES:
             stroke = STROKES[s]
-        elif key_swap(s) in STROKES:  # Check for flipped pairs
-            stroke = STROKES[key_swap(s)]
+        elif s[1] + s[0] in STROKES:  # Check for flipped pairs
+            stroke = STROKES[s[1] + s[0]]
 
         # Parse and assign coordinates
         start_x = grid_x * cell_size + stroke[0][0] * cell_size
@@ -96,10 +96,6 @@ def render_character(character_lines, grid_x, grid_y):
 
         # Render
         pygame.draw.line(screen, black, (start_x, start_y), (end_x, end_y), 3)
-
-
-def key_swap(s):
-    return s[1] + s[0]
 
 
 # Define the character 'L' with the corrected coordinates
