@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21d17a-7186-49af-8145-68cc691c10f1" name="Changes" comment="Added data for but had not yet implemented rendering different characters, based on the WASD coordinate system.">
+    <list default="true" id="2a21d17a-7186-49af-8145-68cc691c10f1" name="Changes" comment="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/font.csv" beforeDir="false" afterPath="$PROJECT_DIR$/font.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +65,28 @@
       <option name="project" value="LOCAL" />
       <updated>1730006252804</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added data for but had not yet implemented rendering different characters, based on the WASD coordinate system.">
+      <option name="closed" value="true" />
+      <created>1730007805173</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730007805173</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs.">
+      <option name="closed" value="true" />
+      <created>1730007963955</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730007963955</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added data for but had not yet implemented rendering different characters, based on the WASD coordinate system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added data for but had not yet implemented rendering different characters, based on the WASD coordinate system." />
+    <MESSAGE value="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs." />
   </component>
 </project>

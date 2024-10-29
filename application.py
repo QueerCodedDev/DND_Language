@@ -1,9 +1,10 @@
+import math
+import time
+
 import pygame
 import csv
 
-# Load face font data
-font = ['smile', ' frown']
-
+font = []
 # Load csv font data
 with open('font.csv', newline='') as csvfile:
     buffer = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -22,7 +23,9 @@ font_special = [
     ['/', 'WS:SA:AD:SD'],
     ['(', 'WS:AD'],
     [')', 'WS:AD:AS'],
-    ['=', 'WD:DS:SA:AW:WS:AD']
+    ['=', 'WD:DS:SA:AW:WS:AD'],
+    ['?', 'WA:AS:SD'],
+    ['!', 'WA:WD:DS']
 ]
 
 # Add special characters to main list
@@ -48,9 +51,9 @@ STROKES = {
 pygame.init()
 
 # Screen dimensions
-screen_width = 400
-screen_height = 400
-cell_size = 25  # Size of each grid cell
+cell_size = 64  # Size of each grid cell
+screen_width = cell_size * 16
+screen_height = cell_size * 16
 
 # Colors
 white = (255, 255, 255)
@@ -85,8 +88,11 @@ def render_character(character_lines, grid_x, grid_y):
         stroke = STROKES['']  # Empty stroke
         if s in STROKES:
             stroke = STROKES[s]
-        elif s[1] + s[0] in STROKES:  # Check for flipped pairs
-            stroke = STROKES[s[1] + s[0]]
+        try:
+            if s[1] + s[0] in STROKES:  # Check for flipped pairs
+                stroke = STROKES[s[1] + s[0]]
+        except IndexError:
+            print(s)
 
         # Parse and assign coordinates
         start_x = grid_x * cell_size + stroke[0][0] * cell_size
@@ -95,15 +101,8 @@ def render_character(character_lines, grid_x, grid_y):
         end_y = grid_y * cell_size - stroke[1][1] * cell_size
 
         # Render
-        pygame.draw.line(screen, black, (start_x, start_y), (end_x, end_y), 3)
+        pygame.draw.line(screen, black, (start_x, start_y), (end_x, end_y), 1)
 
-
-# Define the character 'L' with the corrected coordinates
-character_L = [
-    [(0, 0), (1, -1)],
-    [(1, 0), (1, -1)],
-    [(0, -1), (1, -1)]
-]
 
 # Main loop
 running = True
@@ -114,7 +113,22 @@ while running:
 
     screen.fill(white)
     draw_grid()
-    render_character(font[13][1], 0, 0)
+
+    i = 1
+    j = 1
+    for f in font:
+        if f == 'smile' or f == 'frown':
+            continue
+        else:
+            render_character(f[1], i, j)
+            i += 2
+            if i >= 15:
+                j += 2
+                i = 1
+    # render_character(font[13][1], 0, 0)
+
+# To check if a line is being redone, save list of drawn lines and before drawing a line check and see if another line
+    # has been drawn there and change the color accordingly.
 
     pygame.display.flip()
     # running = False
