@@ -1,6 +1,6 @@
 import pygame
 
-from const.colors import black
+from const.colors import BLACK
 from uti.code_message import code_message
 from uti.render_character import render_character
 
@@ -32,7 +32,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill(black)
+    screen.fill(BLACK)
     # draw_grid(screen, screen_width, screen_height, cell_size)
 
     # Positional variables

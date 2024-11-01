@@ -1,5 +1,5 @@
 # Colors
-white = (255, 255, 255)
-black = (0, 0, 0)
-one_stroke = white
-two_stroke = (255, 0, 0)  # Red
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+ONE_STROKE = WHITE
+TWO_STROKE = (255, 0, 0)  # Red

@@ -1,14 +1,14 @@
 import csv
 
-font = {}
+FONT = {}
 # Load csv font data
 with open('font.csv', newline='') as csvfile:
     buffer = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in buffer:
-        font[row[0]] = row[1]
+        FONT[row[0]] = row[1]
 
 # Load special character font data
-font_special = {
+FONT_SPECIAL = {
     ' ': '',
     '.': 'WA:AD:WS',
     ',': 'WA:AD:WD:WS',
@@ -28,4 +28,4 @@ font_special = {
 }
 
 # Add special characters to main list
-font.update(font_special)
+FONT.update(FONT_SPECIAL)

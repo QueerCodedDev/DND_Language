@@ -1,6 +1,6 @@
 import pygame
 
-from const.colors import one_stroke, two_stroke
+from const.colors import ONE_STROKE, TWO_STROKE
 from const.strokes import STROKES
 
 cell_size = 16  # Size of each grid cell
@@ -59,10 +59,10 @@ def render_character(screen, stroke_history, character_lines, grid_x, grid_y):
                 ])
 
             # Determine stroke color, default is one_stroke
-            stroke_color = one_stroke
+            stroke_color = ONE_STROKE
             stroke_count = (stroke_history.count([{'x': start_x, 'y': start_y}, {'x': end_x, 'y': end_y}]) +
                             stroke_history.count([{'x': end_x, 'y': end_y}, {'x': start_x, 'y': start_y}]))
             if stroke_count == 2:
-                stroke_color = two_stroke
+                stroke_color = TWO_STROKE
             # Render
             pygame.draw.line(screen, stroke_color, (start_x, start_y), (end_x, end_y), 1)
