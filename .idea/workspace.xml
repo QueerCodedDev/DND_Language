@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a21d17a-7186-49af-8145-68cc691c10f1" name="Changes" comment="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs.">
+    <list default="true" id="2a21d17a-7186-49af-8145-68cc691c10f1" name="Changes" comment="Changed design of the smile and frown characters. Won't be as funny but it works better.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/font.csv" beforeDir="false" afterPath="$PROJECT_DIR$/font.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +32,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.application.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.application.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,12 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1730007963955</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changed design of the smile and frown characters. Won't be as funny but it works better.">
+      <option name="closed" value="true" />
+      <created>1730234681256</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730234681256</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added data for but had not yet implemented rendering different characters, based on the WASD coordinate system." />
     <MESSAGE value="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented rendering different characters, based on the WASD coordinate system. Added checking for flipped coordinate pairs." />
+    <MESSAGE value="Changed design of the smile and frown characters. Won't be as funny but it works better." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed design of the smile and frown characters. Won't be as funny but it works better." />
   </component>
 </project>
