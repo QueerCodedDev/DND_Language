@@ -8,25 +8,25 @@ from uti.render_character import render_character
 pygame.init()
 
 # Screen dimensions
-cell_size = 16  # Size of each grid cell
-screen_width = cell_size * 16
-screen_height = cell_size * 16
+cell_size: int = 16  # Size of each grid cell
+screen_width: int = cell_size * 16
+screen_height: int = cell_size * 16
 
 # Create the screen
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Character Rendering")
 
 # Retrieve input
-file_name = 'res/test_file.txt'
+file_name: str = 'res/test_file.txt'
 with open(file_name, 'r+') as file:
-    message = file.read()
+    message: str = file.read()
 
 print(message)
 # History of lines for rendering styling
-stroke_history = []
+stroke_history: list[dict[str, int]] = []
 
 # Main loop
-running = True
+running: bool = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -36,12 +36,12 @@ while running:
     # draw_grid(screen, screen_width, screen_height, cell_size)
 
     # Positional variables
-    i = 1
-    j = 1
-    increment = 1
-    horizontal_limit = 10
+    i: int = 1
+    j: int = 1
+    increment: int = 1
+    horizontal_limit: int = 10
 
-    message_code = code_message(message)
+    message_code: list[str] = code_message(message)
     stroke_history = []
     for m in message_code:
         if m == 'smile' or m == 'frown':

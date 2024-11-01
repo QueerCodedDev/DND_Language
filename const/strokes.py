@@ -1,10 +1,10 @@
 # Define positions
-W = (0, 0)
-A = (0, -1)
-S = (1, -1)
-D = (1, 0)
+W: tuple[int, int] = (0,  0)
+A: tuple[int, int] = (0, -1)
+S: tuple[int, int] = (1, -1)
+D: tuple[int, int] = (1,  0)
 
-STROKES = {
+STROKES: dict[str, list[tuple[int, int]]] = {
     '': [],
     'WA': [W, A],
     'WS': [W, S],

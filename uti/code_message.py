@@ -3,7 +3,7 @@ from const.font import FONT
 
 def code_message(s):
     s = s.upper()
-    coded_message = []
+    coded_message: list[str] = []
     for c in s:
         if c in FONT:
             coded_message.append(FONT[c])

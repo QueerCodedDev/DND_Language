@@ -1,9 +1,11 @@
+from typing import Tuple
+
 import pygame
 
 from const.colors import ONE_STROKE, TWO_STROKE
 from const.strokes import STROKES
 
-cell_size = 16  # Size of each grid cell
+cell_size: int = 16  # Size of each grid cell
 
 
 def render_character(screen, stroke_history, character_lines, grid_x, grid_y):
@@ -19,7 +21,7 @@ def render_character(screen, stroke_history, character_lines, grid_x, grid_y):
         stroke_history:
     """
     # Parse strokes
-    strokes = character_lines.split(':')
+    strokes: list[str] = character_lines.split(':')
     for s in strokes:
         stroke = STROKES['']  # Empty stroke
         if s in STROKES:
@@ -33,10 +35,10 @@ def render_character(screen, stroke_history, character_lines, grid_x, grid_y):
         # As long as the stroke isn't empty
         if stroke != STROKES['']:
             # Parse and assign coordinates if the stroke isn't empty
-            start_x = grid_x * cell_size + stroke[0][0] * cell_size
-            start_y = grid_y * cell_size - stroke[0][1] * cell_size
-            end_x = grid_x * cell_size + stroke[1][0] * cell_size
-            end_y = grid_y * cell_size - stroke[1][1] * cell_size
+            start_x: int = grid_x * cell_size + stroke[0][0] * cell_size
+            start_y: int = grid_y * cell_size - stroke[0][1] * cell_size
+            end_x: int = grid_x * cell_size + stroke[1][0] * cell_size
+            end_y: int = grid_y * cell_size - stroke[1][1] * cell_size
 
             # THIS WILL NEED TO BE SIMPLIFIED ONCE IT IS WORKING AS INTENDED
             # If the line is already in the log, add it as is
@@ -59,9 +61,9 @@ def render_character(screen, stroke_history, character_lines, grid_x, grid_y):
                 ])
 
             # Determine stroke color, default is one_stroke
-            stroke_color = ONE_STROKE
-            stroke_count = (stroke_history.count([{'x': start_x, 'y': start_y}, {'x': end_x, 'y': end_y}]) +
-                            stroke_history.count([{'x': end_x, 'y': end_y}, {'x': start_x, 'y': start_y}]))
+            stroke_color: tuple[int, int, int] = ONE_STROKE
+            stroke_count: int = (stroke_history.count([{'x': start_x, 'y': start_y}, {'x': end_x, 'y': end_y}]) +
+                                 stroke_history.count([{'x': end_x, 'y': end_y}, {'x': start_x, 'y': start_y}]))
             if stroke_count == 2:
                 stroke_color = TWO_STROKE
             # Render

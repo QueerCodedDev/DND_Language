@@ -1,6 +1,8 @@
 import csv
 
-FONT = {}
+
+FONT: dict[str, str] = {}
+
 # Load csv font data
 with open('font.csv', newline='') as csvfile:
     buffer = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -8,7 +10,7 @@ with open('font.csv', newline='') as csvfile:
         FONT[row[0]] = row[1]
 
 # Load special character font data
-FONT_SPECIAL = {
+FONT_SPECIAL: dict[str, str] = {
     ' ': '',
     '.': 'WA:AD:WS',
     ',': 'WA:AD:WD:WS',
